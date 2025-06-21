@@ -28,11 +28,6 @@ void loop() {
   delay(LOOP_DELAY_MS);
 }
 
-void printFloat(LiquidCrystal& display, float value, uint8_t decimals) {
-  // Arduino print supports decimals arg on floats, so just forward it
-  display.print(value, decimals);
-}
-
 void displaySensorData(float temperature, float humidity) {
   lcd.clear();
   lcd.setCursor(0, 0);
@@ -44,4 +39,9 @@ void displaySensorData(float temperature, float humidity) {
   lcd.print("Humidity: ");
   printFloat(lcd, humidity, 0);
   lcd.print("%");
+}
+
+void printFloat(LiquidCrystal& display, float value, uint8_t decimals) {
+  // Arduino print supports decimals arg on floats, so just forward it
+  display.print(value, decimals);
 }
